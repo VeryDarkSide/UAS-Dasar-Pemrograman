@@ -1,52 +1,42 @@
-# Prerequisites
-*.d
+int faktorial(int p)
+{
+    if(p==0)return 1;
+    else return p* faktorial(p-1);
+}
+float pangkat(float p, int n)
+{
+    float nilai =1;
+    if(n==0)
+    {
+        return 1;
+    }
+    else
+    {
+        for (int i = 1; i <= n ; ++i)
+        {
+         nilai=nilai*p;
+        }
+    }
+    return nilai;
+}
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+float cos(float x)
+{
+    int hasil=0,i;
+    if(x<0)
+    {
+        x=x*-1;
+    }
+    for (int i = 0; i <= 10 ; ++i)
+    {
+     hasil=hasil+((pangkat(-1,i)* pangkat(x,2*i))/faktorial(2*i) );
+    }
+    return hasil;
+}
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+int main()
+{
+    printf("hasil dari 4! = %d\n", faktorial(4));
+    printf("hasil dari 2 pangkat 10 = %.2f\n", pangkat(2,10));
+    printf("hasil dari cos(3.14/2) = %d", cos(3.14/2));
+}
